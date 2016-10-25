@@ -1,7 +1,7 @@
 package main
 
 import (
-    "fmt"
+	"fmt"
 	"io/ioutil"
 	"os"
 	"text/template"
@@ -15,28 +15,28 @@ func main() {
 
 	tmplBody, err := ioutil.ReadFile(tmplPath)
 	if err != nil {
-        fmt.Println(err)
+		fmt.Println(err)
 		return
 	}
 
 	tmpl, err := template.New("tmpl").Parse(string(tmplBody))
 	if err != nil {
-        fmt.Println(err)
+		fmt.Println(err)
 		return
 	}
 
 	file, err := os.Create(outPath)
 	if err != nil {
-        fmt.Println(err)
+		fmt.Println(err)
 		return
 	}
 	defer file.Close()
 
 	err = tmpl.Execute(file, args[3:])
 	if err != nil {
-        fmt.Println(err)
+		fmt.Println(err)
 		return
 	}
 
-    fmt.Println(outPath, "generated")
+	fmt.Println(outPath, "generated")
 }
