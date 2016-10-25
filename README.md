@@ -3,4 +3,4 @@ ste (simple template engine) is a simple wrapper to go template engine, you can 
 
     ste templateFileName string1 string2
 
-where the template receive a slice containing strng1 and string2
+where the template receive a slice containing string1 and string2
