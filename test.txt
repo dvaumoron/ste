@@ -2,3 +2,13 @@
 
 
 Just a little test with first value equals "toto" and second value equals "tata".
+
+Or another way to read input:
+
+
+- toto
+
+- tata
+
+- titi
+
