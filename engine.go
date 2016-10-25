@@ -17,7 +17,7 @@ func main() {
 		panic(err)
 	}
 
-	tmpl, err := template.New("tmpl").Parse(tmplBody)
+	tmpl, err := template.New("tmpl").Parse(string(tmplBody))
 	if err != nil {
 		panic(err)
 	}
