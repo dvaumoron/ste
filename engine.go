@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"os"
+	"strconv"
 	"text/template"
 )
 
@@ -32,7 +33,14 @@ func main() {
 	}
 	defer file.Close()
 
-	err = tmpl.Execute(file, args[3:])
+	tmplArgs := make(map[string]interface{})
+	values := args[3:]
+	tmplArgs["values"] = values
+	for i, value := range values {
+		tmplArgs["value"+strconv.Itoa(i)] = value
+	}
+
+	err = tmpl.Execute(file, tmplArgs)
 	if err != nil {
 		fmt.Println(err)
 		return
