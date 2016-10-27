@@ -37,7 +37,7 @@ func main() {
 	values := args[3:]
 	tmplArgs["values"] = values
 	for i, value := range values {
-		tmplArgs["value"+strconv.Itoa(i)] = value
+		tmplArgs["value"+strconv.Itoa(i+1)] = value
 	}
 
 	err = tmpl.Execute(file, tmplArgs)
