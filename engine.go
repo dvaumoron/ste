@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
 	"os"
 	"strconv"
 	"text/template"
@@ -14,7 +13,7 @@ func main() {
 	tmplPath := args[1]
 	outPath := args[2]
 
-	tmplBody, err := ioutil.ReadFile(tmplPath)
+	tmplBody, err := os.ReadFile(tmplPath)
 	if err != nil {
 		fmt.Println(err)
 		return
@@ -33,7 +32,7 @@ func main() {
 	}
 	defer file.Close()
 
-	tmplArgs := make(map[string]interface{})
+	tmplArgs := make(map[string]any)
 	values := args[3:]
 	tmplArgs["values"] = values
 	for i, value := range values {
