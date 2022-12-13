@@ -32,7 +32,7 @@ func main() {
 	}
 	defer file.Close()
 
-	tmplArgs := make(map[string]any)
+	tmplArgs := map[string]any{}
 	values := args[3:]
 	tmplArgs["values"] = values
 	for i, value := range values {
